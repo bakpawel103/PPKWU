@@ -15,12 +15,15 @@ app.get('/', (req, res) => {
 });
 
 app.post('/rev', (req, res) => {
-    console.log(req.body.stringToRev);
-    res.send(reverse(req.body.stringToRev));
+  if(!req.body || !req.body.stringToRev || !(typeof req.body.stringToRev == "string")) {
+    res.status(500).send('Pass body with stringToRev property');
+  } else {
+    res.json({ response: reverse(req.body.stringToRev) });
+  }
 });
 
 function reverse(s){
     return [...s].reverse().join("");
 }
 
-app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
+app.listen(port, () => console.log(`Service to reverse string. Can be run at /rev endpoint and body with string property name: "stringToRev"`));
