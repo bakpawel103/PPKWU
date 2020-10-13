@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/bakpawel103/PPKWU/issues"
   },
-  "homepage": "https://github.com/bakpawel103/PPKWU#readme"
+  "homepage": "https://github.com/bakpawel103/PPKWU#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
